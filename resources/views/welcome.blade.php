@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link rel="stylesheet" type="text/css" href="/css/app.css ">
         <title>Laravel</title>
 
         <!-- Fonts -->
@@ -76,18 +77,40 @@
                     @endif
                 </div>
             @endif
-
+             <!--
             <div class="content">
                 <div class="title m-b-md">
                     Laravel
                 </div>
-
+               
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
+                </div>
+
+            </div>
+            -->
+            <div class="container">
+                <div class="row">                
+                    @if(isset($noticias))
+                        @foreach ($noticias as $noticia)
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h2>{{ $noticia->titulo }}</h2>
+                                    </div>
+                                    <div class="panel-body">
+                                        <img class="img img-responsive" style="max-width:200px;" src="imgNoticias/{{ $noticia->urlImg }}">
+                                        <p>{{ $noticia->descripcion }}</p>
+                                    </div>
+                                    <div class="panel-footer">-</div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
